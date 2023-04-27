@@ -39,6 +39,7 @@ public class JobData {
         loadData();
 
         // Bonus mission; normal version returns allJobs
+
         return new ArrayList<>(allJobs);
     }
 

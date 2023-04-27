@@ -11,7 +11,10 @@ public class Job {
     private Employer employer;
     private Location location;
     private PositionType positionType;
+
+    private String positionLink;
     private CoreCompetency coreCompetency;
+
 
     // Initialize a unique ID.
     public Job() {
@@ -26,6 +29,7 @@ public class Job {
         employer = anEmployer;
         location = aLocation;
         positionType = aPositionType;
+        positionLink = aPositionType.toString().replaceAll("/", "-");
         coreCompetency = aCoreCompetency;
     }
 
@@ -117,5 +121,13 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    public String getPositionLink() {
+        return positionLink;
+    }
+
+    public void setPositionLink(String positionLink) {
+        this.positionLink = positionLink;
     }
 }
