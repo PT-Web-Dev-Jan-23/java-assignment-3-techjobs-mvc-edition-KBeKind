@@ -58,7 +58,7 @@ public class TestTaskTwo {
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td[contains(text(), 'Junior Web Developer')]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Cozy')]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Portland')]").exists())
-                .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td[contains(text(), 'Web - Front End')]").exists())
+                .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Web - Front End')]").exists())
                 .andExpect(xpath("//table[contains(@class, 'job-listing')][1]/tr/td/a[contains(text(), 'Ruby')]").exists());
     }
 
