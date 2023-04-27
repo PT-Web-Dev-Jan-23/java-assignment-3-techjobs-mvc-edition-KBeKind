@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 import static org.launchcode.techjobs.mvc.controllers.ListController.columnChoices;
@@ -17,7 +20,7 @@ import static org.launchcode.techjobs.mvc.controllers.ListController.columnChoic
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController extends TechJobsController {
 
     @GetMapping(value = "")
     public String search(Model model) {
@@ -44,6 +47,23 @@ public class SearchController {
         return "search";
     }
 
+    @GetMapping("results/{searchType}/{searchValue}")
+    public String displayClickResults(Model model, @PathVariable String searchType, @PathVariable String searchValue) {
+        ArrayList<Job> jobs = new ArrayList<>();
+
+        if(searchValue == null || searchValue.trim().isEmpty() || searchValue.trim().toUpperCase().equals("ALL")) {
+            jobs = JobData.findAll();
+        } else {
+
+            jobs = JobData.findByColumnAndValue(searchType, searchValue);
+        }
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("columns", columnChoices);
+        model.addAttribute("searchType", searchType);
+        model.addAttribute("searchValue", searchValue);
+
+        return "search";
+    }
 
 
 }

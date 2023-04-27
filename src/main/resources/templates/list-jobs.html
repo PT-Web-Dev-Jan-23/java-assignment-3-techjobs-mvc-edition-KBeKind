@@ -12,29 +12,45 @@
 
 
     <th:block  th:fragment="displayTable">
-    <!-- TODO #1 - Use a loop to display job results in a table. -->
+
+
+        <!-- TODO #1 - Use a loop to display job results in a table. -->
     <table class="job-listing" th:each="job : ${jobs}">
 
             <tr>
                 <td>ID</td>
-                <td th:text="${job.id}"></td></tr>
+                <td th:text="${job.id}"></td>
+            </tr>
             <tr>
                 <td>Name</td>
-                <td th:text="${job.name}"></td></tr>
+                <td th:text="${job.name}"></td>
+            </tr>
             <tr>
                 <td>Employer</td>
-                <td th:text="${job.employer}"></td></tr>
+                <td>
+                    <a th:href="@{${'/search/results/employer/' + job.employer}}" th:text="${job.employer}"></a>
+                </td>
+            </tr>
             <tr>
                 <td>Location</td>
-                <td th:text="${job.location}"></td></tr>
+                <td>
+                    <a th:href="@{${'/search/results/location/' + job.location}}" th:text="${job.location}"></a>
+                </td>
+            </tr>
+
             <tr>
                 <td>Position Type</td>
-                <td th:text="${job.positionType}"></td></tr>
+                <td th:text="${job.positionType}">
+                </td>
+            </tr>
             <tr>
                 <td>Skill</td>
-                <td th:text="${job.coreCompetency}"></td></tr>
-
+                <td>
+                    <a th:href="@{${'/search/results/coreCompetency/' + job.coreCompetency}}" th:text="${job.coreCompetency}"></a>
+                </td>
+            </tr>
     </table>
+
     </th:block>
 </div>
 
