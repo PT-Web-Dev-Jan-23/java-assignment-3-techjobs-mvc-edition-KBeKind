@@ -54,7 +54,9 @@ public class SearchController extends TechJobsController {
         if(searchValue == null || searchValue.trim().isEmpty() || searchValue.trim().toUpperCase().equals("ALL")) {
             jobs = JobData.findAll();
         } else {
-
+            if (searchType.equals("positionType")) {
+                searchValue = searchValue.replaceAll("-", "/");
+            }
             jobs = JobData.findByColumnAndValue(searchType, searchValue);
         }
         model.addAttribute("jobs", jobs);

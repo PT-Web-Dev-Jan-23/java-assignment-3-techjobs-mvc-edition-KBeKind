@@ -40,7 +40,8 @@
 
             <tr>
                 <td>Position Type</td>
-                <td th:text="${job.positionType}">
+                <td >
+                    <a th:href="@{${'/search/results/positionType/' + job.positionLink}}" th:text="${job.positionType}"></a>
                 </td>
             </tr>
             <tr>
