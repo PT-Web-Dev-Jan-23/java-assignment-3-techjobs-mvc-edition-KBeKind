@@ -16,7 +16,7 @@ import static org.launchcode.techjobs.mvc.controllers.ListController.columnChoic
  * Created by LaunchCode
  */
 @Controller
-@RequestMapping("search/")
+@RequestMapping("search")
 public class SearchController {
 
     @GetMapping(value = "")
@@ -26,7 +26,6 @@ public class SearchController {
     }
 
     // TODO #3 - Create a handler to process a search request and render the updated search view.
-
 
     @PostMapping("results")
     public String displaySearchResults( Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
