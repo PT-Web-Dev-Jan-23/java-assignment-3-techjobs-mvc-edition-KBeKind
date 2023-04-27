@@ -39,6 +39,7 @@ public class JobData {
         loadData();
 
         // Bonus mission; normal version returns allJobs
+        System.out.println("JobData.findAll() called");
         return new ArrayList<>(allJobs);
     }
 
